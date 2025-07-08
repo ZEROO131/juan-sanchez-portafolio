@@ -53,18 +53,31 @@
 <body class="bg-gray-900 text-white font-sans">
   <!-- Header fijo -->
   <header class="w-full bg-gray-900/90 backdrop-blur text-white p-4 fixed top-0 z-50 shadow-lg fade-in border-b border-blue-900">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
+    <div class="max-w-6xl mx-auto flex justify-between items-center relative">
       <div class="flex items-center gap-2">
         <span class="text-2xl text-blue-400 font-extrabold"><i class="bi bi-person-circle"></i></span>
         <span class="text-xl font-bold text-blue-400">Juan Sánchez</span>
       </div>
-      <nav class="flex overflow-x-auto no-scrollbar space-x-2 sm:space-x-4 text-base w-full max-w-xs sm:max-w-none">
+      <!-- Menú normal (desktop/tablet) -->
+      <nav class="hidden sm:flex space-x-4 text-base">
         <a href="#sobre-mi" class="hover:text-blue-400 transition whitespace-nowrap">Sobre mí</a>
         <a href="#tecnologias" class="hover:text-blue-400 transition whitespace-nowrap">Tecnologías</a>
         <a href="#servicios" class="hover:text-blue-400 transition whitespace-nowrap">Servicios</a>
         <a href="#proyectos" class="hover:text-blue-400 transition whitespace-nowrap">Proyectos</a>
         <a href="#contacto" class="hover:text-blue-400 transition whitespace-nowrap">Contacto</a>
       </nav>
+      <!-- Botón hamburguesa (móvil) -->
+      <button id="menu-btn" class="sm:hidden text-3xl p-2 focus:outline-none">
+        <i class="bi bi-list"></i>
+      </button>
+      <!-- Menú desplegable móvil -->
+      <div id="mobile-menu" class="absolute right-0 top-16 bg-gray-900 border border-blue-900 rounded-lg shadow-lg w-48 flex-col py-2 z-50 hidden sm:hidden">
+        <a href="#sobre-mi" class="block px-6 py-2 hover:bg-blue-900 hover:text-blue-400 transition">Sobre mí</a>
+        <a href="#tecnologias" class="block px-6 py-2 hover:bg-blue-900 hover:text-blue-400 transition">Tecnologías</a>
+        <a href="#servicios" class="block px-6 py-2 hover:bg-blue-900 hover:text-blue-400 transition">Servicios</a>
+        <a href="#proyectos" class="block px-6 py-2 hover:bg-blue-900 hover:text-blue-400 transition">Proyectos</a>
+        <a href="#contacto" class="block px-6 py-2 hover:bg-blue-900 hover:text-blue-400 transition">Contacto</a>
+      </div>
     </div>
   </header>
 
@@ -201,6 +214,20 @@
         target.classList.add('section-highlight');
         setTimeout(() => target.classList.remove('section-highlight'), 800);
       }
+    });
+  });
+</script>
+<script>
+  // Menú hamburguesa móvil
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+  // Cierra el menú al hacer clic en un enlace
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
     });
   });
 </script>
