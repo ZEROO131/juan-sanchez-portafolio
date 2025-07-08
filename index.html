@@ -41,6 +41,13 @@
       box-shadow: 0 0 0 4px #60a5fa, 0 0 20px #60a5fa88;
       transition: box-shadow 0.4s;
     }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
   </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
@@ -51,12 +58,12 @@
         <span class="text-2xl text-blue-400 font-extrabold"><i class="bi bi-person-circle"></i></span>
         <span class="text-xl font-bold text-blue-400">Juan Sánchez</span>
       </div>
-      <nav class="space-x-2 sm:space-x-4 text-base">
-        <a href="#sobre-mi" class="hover:text-blue-400 transition">Sobre mí</a>
-        <a href="#tecnologias" class="hover:text-blue-400 transition">Tecnologías</a>
-        <a href="#servicios" class="hover:text-blue-400 transition">Servicios</a>
-        <a href="#proyectos" class="hover:text-blue-400 transition">Proyectos</a>
-        <a href="#contacto" class="hover:text-blue-400 transition">Contacto</a>
+      <nav class="flex overflow-x-auto no-scrollbar space-x-2 sm:space-x-4 text-base w-full max-w-xs sm:max-w-none">
+        <a href="#sobre-mi" class="hover:text-blue-400 transition whitespace-nowrap">Sobre mí</a>
+        <a href="#tecnologias" class="hover:text-blue-400 transition whitespace-nowrap">Tecnologías</a>
+        <a href="#servicios" class="hover:text-blue-400 transition whitespace-nowrap">Servicios</a>
+        <a href="#proyectos" class="hover:text-blue-400 transition whitespace-nowrap">Proyectos</a>
+        <a href="#contacto" class="hover:text-blue-400 transition whitespace-nowrap">Contacto</a>
       </nav>
     </div>
   </header>
